@@ -50,7 +50,7 @@ export default Ember.Service.extend({
         window.localStorage.setItem('peeps-mode', mode);
 
         this.addStrategy('event-logging');
-        this.addStrategy('log-truncation');
+    //    this.addStrategy('log-truncation');
 
         // Configure a remote source and related strategies
         if (mode === 'pessimistic-server' ||

@@ -13,6 +13,7 @@ export default Ember.Component.extend({
 
   activeMode: computed.alias('orbitConfiguration.mode'),
   configurationModes: computed.alias('orbitConfiguration.availableModes'),
+  transformLog: computed.alias('activeSource.transformLog'),
 
   init() {
     this._super();
