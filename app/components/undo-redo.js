@@ -1,8 +1,9 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 
-export default Ember.Component.extend({
+export default Component.extend({
 
-  undo: Ember.inject.service(),
+  undo: service(),
 
   actions: {
 

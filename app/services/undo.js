@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import Service, { inject as service } from '@ember/service';
+import { notEmpty } from '@ember/object/computed';
 
 /*
 
@@ -16,9 +17,9 @@ store.update(inverseOps);
 /**
  * Undo and Redo operations
  */
-export default Ember.Service.extend({
+export default Service.extend({
 
-  store: Ember.inject.service(),
+  store: service(),
 
   undoStack: null,
   redoStack: null,
@@ -30,8 +31,8 @@ export default Ember.Service.extend({
     this.set('undoStack', []);
   },
 
-  canUndo: Ember.computed.notEmpty('undoStack'),
-  canRedo: Ember.computed.notEmpty('redoStack'),
+  canUndo: notEmpty('undoStack'),
+  canRedo: notEmpty('redoStack'),
 
   undo() {
     // if(!this.get('canUndo')) {
