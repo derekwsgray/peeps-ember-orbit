@@ -1,9 +1,8 @@
-import Ember from 'ember';
-
-const { get, inject, Route } = Ember;
+import { inject as service } from '@ember/service';
+import Route from '@ember/routing/route';
 
 export default Route.extend({
-  orbitConfiguration: inject.service(),
+  orbitConfiguration: service(),
 
   beforeModel() {
     // Initialize the default (or most recently used) configuration for this
@@ -15,6 +14,6 @@ export default Route.extend({
     // necessary to call `dataCoordinator.activate()` to activate the
     // coordinator service in this hook (and since activation is an async
     // process, a promise should be returned here).
-    return get(this, 'orbitConfiguration').initialize();
+    return this.orbitConfiguration.initialize();
   }
 });

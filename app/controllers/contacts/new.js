@@ -2,12 +2,11 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
   actions: {
-    edit() {
-      this.transitionToRoute('contact.edit');
+    contactCreated() {
+      this.transitionToRoute('contacts.index');
     },
 
-    async remove() {
-      await this.model.remove({ label: 'Remove contact' });
+    cancelContactCreation() {
       this.transitionToRoute('contacts.index');
     }
   }
